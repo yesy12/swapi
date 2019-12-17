@@ -6,7 +6,7 @@ const Peoples = () => {
     const [previous,setPrevious] = useState();
     const [next,setNext] = useState();
     const [count,setCount] = useState(0);
-    const [results,setResults] = useState();
+    const [results,setResults] = useState([]);
 
     const link = "https://swapi.co/api/people/?format=json";
 
@@ -16,13 +16,10 @@ const Peoples = () => {
          .then((dados)=>{
             let {data} = dados;
             setData(data);
-            let {count} = data;
-            
-            let {previous} = data;
-            let {next} = data;
-
-            let {results} = data;
-        })
+         })
+         .catch( (error) => {
+            console.log(error);
+         })
 
     },[setData,link])
 
@@ -30,13 +27,85 @@ const Peoples = () => {
         setCount(data.count);
         setNext(data.next);
         setPrevious(data.previous);
-        setResults(data.results);
+        setResults([
+            data.results,
+        ]);
     },[data,setCount,setNext,setPrevious,setResults])
+
+    const RenderRow = (info) => {
+        console.log(info[0])
+    }
 
     return(
         <div className="Peoples">
             <h1>Peoples</h1>
-            {JSON.stringify(results)}
+            
+            <span>
+                Quantidade de Pessoas: {count}
+            </span> <br/><br/>
+
+            { results.map(RenderRow) }
+
+            {/* {JSON.stringify(results)} */}
+
+
+
+
+            {/* <table>
+                <thead>
+                    <th>
+                        Name
+                    </th>
+                    <th>
+                        Height
+                    </th>
+                    <th>
+                        Mass
+                    </th>
+                    <th>
+                        Hair Color
+                    </th>
+                    <th>
+                        Skin Color
+                    </th>
+                    <th>
+                        Eye Color
+                    </th>
+                    <th>
+                        Homeworld
+                    </th>
+                    <th>
+                        Films
+                    </th>
+                    <th>
+                        Vehicles
+                    </th>
+                    <th>
+                        Starships
+                    </th>
+                    <th>
+                        Created
+                    </th>
+                    <th>
+                        Edited
+                    </th>                                        
+                </thead>
+
+                <tbody>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tbody>
+            </table>  */}
+
+            {/* {results.map( info => { console.log(info) } )} */}
+            
+
         </div>
     );
 }

@@ -1,7 +1,8 @@
 import React from 'react';
 import { 
   BrowserRouter as Router,
-  Link
+  Link,
+  Route
 } from "react-router-dom";
 
 function App() {
@@ -14,6 +15,12 @@ function App() {
           Informações tiradas deste <a href="https://swapi.co" target="_blank">site.</a>
         </p>
 
+      </div>
+
+      <div className="rotas">
+        <Route path="/people">
+          People
+        </Route>
       </div>
     </Router>
   );

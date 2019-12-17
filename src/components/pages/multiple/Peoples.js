@@ -3,15 +3,40 @@ import axios from "axios";
 
 const Peoples = () => {
     const [data,setData] = useState([]);
+    const [previous,setPrevious] = useState();
+    const [next,setNext] = useState();
+    const [count,setCount] = useState(0);
+    const [results,setResults] = useState();
+
+    const link = "https://swapi.co/api/people/?format=json";
 
     useEffect(()=>{
-        setData([4.4,35.34,42.234]);
-    },[setData])
+        axios
+         .get(link)
+         .then((dados)=>{
+            let {data} = dados;
+            setData(data);
+            let {count} = data;
+            
+            let {previous} = data;
+            let {next} = data;
+
+            let {results} = data;
+        })
+
+    },[setData,link])
+
+    useEffect(()=>{
+        setCount(data.count);
+        setNext(data.next);
+        setPrevious(data.previous);
+        setResults(data.results);
+    },[data,setCount,setNext,setPrevious,setResults])
 
     return(
         <div className="Peoples">
             <h1>Peoples</h1>
-            {JSON.stringify(data)}
+            {JSON.stringify(results)}
         </div>
     );
 }

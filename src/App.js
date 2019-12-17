@@ -8,10 +8,12 @@ import {
 import Home from "./Home";
 import NavBar from './components/NavBar';
 
+//Multiples Infos 
+import Peoples from "./components/pages/multiple/Peoples";
+
+//Single Info
+
 function App() {
-  const Peoples = () => {
-    return <h1>Peoples</h1>;
-  }
 
   const Planets = () => {
     return <h1>Planets</h1>;
@@ -46,7 +48,7 @@ function App() {
           <Route path="/starships" exact component={Starships} />
         </Switch>
       </div>
-      
+
     </Router>
   );
 

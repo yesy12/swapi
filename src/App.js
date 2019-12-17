@@ -5,45 +5,18 @@ import {
   Route
 } from "react-router-dom";
 
+import Home from "./Home";
+import NavBar from './components/NavBar';
+
 function App() {
   return (
     <Router>
-      <div className="App">
-        <h1>Swapi</h1>
-
-        <p>
-          Informações tiradas deste <a href="https://swapi.co" target="_blank">site.</a>
-        </p>
-      </div>
-
-      <div className="nav">
-        <nav>
-          <ul>
-            <li>
-              <Link to="/peoples">Peoples</Link>
-            </li>
-            <li>
-              <Link to="/planets">Planets</Link>
-            </li>
-            <li>
-              <Link to="/films">Films</Link>
-            </li>            
-            <li>
-              <Link to="/species">Species</Link>
-            </li>            
-            <li>
-              <Link to="/vehicles">Vehicles</Link>
-            </li>
-            <li>
-              <Link to="/starships">
-                Starships
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      </div>
+    <div className="App">
 
       <div className="rotas">
+        <Route path="/">
+          <Home />
+        </Route>
         <Route path="/peoples">
           Peoples
         </Route>
@@ -64,6 +37,8 @@ function App() {
         </Route>
       </div>
 
+      <NavBar />
+    </div>
     </Router>
   );
 }

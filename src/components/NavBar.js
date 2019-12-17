@@ -1,11 +1,14 @@
 import React from "react";
 import { 
     Link,
-  } from "react-router-dom";
+} from "react-router-dom";
 
 const NavBar = () => {
     return(
         <div className="nav">
+            <Link to="/">
+                <h1>Swapi</h1>
+            </Link>
             <nav>
                 <ul>
                     <li>

@@ -27,13 +27,17 @@ const Peoples = () => {
         setCount(data.count);
         setNext(data.next);
         setPrevious(data.previous);
-        setResults([
-            data.results,
-        ]);
+
+        let {results} = data;
+
+        let teste = data.results
+
+        console.log(teste);
+        // setResults(data.results)
     },[data,setCount,setNext,setPrevious,setResults])
 
     const RenderRow = (info) => {
-        console.log(info[0])
+        console.log(info);
     }
 
     return(
@@ -44,65 +48,11 @@ const Peoples = () => {
                 Quantidade de Pessoas: {count}
             </span> <br/><br/>
 
-            { results.map(RenderRow) }
 
             {/* {JSON.stringify(results)} */}
 
-
-
-
-            {/* <table>
-                <thead>
-                    <th>
-                        Name
-                    </th>
-                    <th>
-                        Height
-                    </th>
-                    <th>
-                        Mass
-                    </th>
-                    <th>
-                        Hair Color
-                    </th>
-                    <th>
-                        Skin Color
-                    </th>
-                    <th>
-                        Eye Color
-                    </th>
-                    <th>
-                        Homeworld
-                    </th>
-                    <th>
-                        Films
-                    </th>
-                    <th>
-                        Vehicles
-                    </th>
-                    <th>
-                        Starships
-                    </th>
-                    <th>
-                        Created
-                    </th>
-                    <th>
-                        Edited
-                    </th>                                        
-                </thead>
-
-                <tbody>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tbody>
-            </table>  */}
-
+            {/* { results } */}
+            {/* {console.log(results)} */}
             {/* {results.map( info => { console.log(info) } )} */}
             
 

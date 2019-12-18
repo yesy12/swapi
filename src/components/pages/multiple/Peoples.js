@@ -32,7 +32,13 @@ const Peoples = () => {
     return(
         <div className="Peoples">
             <h1>Peoples</h1>
-            {}
+
+            <ol>
+            {results.map(info => (
+                <li key={info.name}>{JSON.stringify(info)}</li>
+            ))}
+            </ol>
+
             {/* {JSON.stringify(results)} */}
             {/* {console.log(results)} */}
             
